@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Insight | Экономический Анализ</title>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+    <script th:src="@{/js/script.js}"></script>
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="#hero" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 13H0L4 9H8L17 0H23L10 13Z" fill="#FAFAFA"/>
+                    <path d="M11 16V14L24 1V3L11 16Z" fill="#FAFAFA"/>
+                    <path d="M11 20V18L24 5V7L11 20Z" fill="#FAFAFA"/>
+                    <path d="M11 24V22L16 17V19L11 24Z" fill="#FAFAFA"/>
+                </svg>
+                DataInsight<span>
+            </a>
+            <nav class="main-nav">
+                <a href="#analysis">Анализ</a>
+                <a href="#quality">Надежность</a> 
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="top-banner">
+            <p>Инсайты из данных, которые важны для экономики и финансов</p>
+        </div>
+        <div class="container">
+            <h1 class="gradient-title">Экономические данные под вашим контролем</h1>
+            <p class="subtitle">Платформа для глубокого анализа финансовых и экономических показателей с помощью Spring Boot и jQuery. Мгновенные вычисления прямо на клиенте.</p>
+            
+            <div class="hero-buttons">
+                <a href="#analysis" class="btn-primary">Начать анализ</a>
+                <a href="#examples" class="btn-secondary">Примеры данных</a>
+            </div>
+        </div>
+        
+        <div class="hero-glow">
+            <div class="glow-layer-1"></div>
+            <div class="glow-layer-2"></div>
+        </div>
+
+        <div class="mockup-block">
+            <div class="mockup-frame">
+                <div class="mockup">
+                    <div class="mockup-content-placeholder">
+                        <p>Демонстрационный мокап (Изображение отсутствует)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="analysis" class="analysis-section">
+        <div class="container">
+            <h2>Интерактивный Экономический Модуль</h2>
+            <p>Таблица содержит ключевые экономические и финансовые показатели. **Кликните на любую ячейку**, чтобы выбрать контрольное значение и получить мгновенный анализ превышений по строке.</p>
+            
+            <div class="table-wrapper">
+                <div th:utext="${tableHtml}"></div>
+            </div>
+            
+            <div id="result" class="result-box">Нажмите на ячейку для начала анализа</div>
+        </div>
+    </section>
+
+    <section id="examples" class="features-section">
+        <div class="container">
+            <h2 class="features-title">
+                Инструменты, которые <br>дают результат.
+            </h2>
+            
+            <div class="features-grid">
+                
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <svg class="feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="currentColor"/>
+                        </svg>
+                        <h3 class="feature-heading">Контроль ликвидности</h3>
+                    </div>
+                    <p class="feature-description">Анализ способности компании быстро погашать краткосрочные обязательства, используя Current Ratio.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <svg class="feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 14H11V17H13V14ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16 14H14V7H16V14ZM8 14H10V10H8V14Z" fill="currentColor"/>
+                        </svg>
+                        <h3 class="feature-heading">Оценка рентабельности</h3>
+                    </div>
+                    <p class="feature-description">Прозрачный расчет ROA и EBITDA Маржи для анализа эффективности использования активов и операционной прибыли.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <svg class="feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 15H11V9H13V15ZM13 17H11V17.5H13V17ZM11 6.5V7H13V6.5H11Z" fill="currentColor"/>
+                        </svg>
+                        <h3 class="feature-heading">Мониторинг инфляции</h3>
+                    </div>
+                    <p class="feature-description">Использование Индекса потребительских цен (CPI) для отслеживания инфляционных рисков в экономике.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <svg class="feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="currentColor"/>
+                        </svg>
+                        <h3 class="feature-heading">Стабильность рынка труда</h3>
+                    </div>
+                    <p class="feature-description">Отслеживание уровня безработицы как индикатора общеэкономической стабильности и здоровья рынка труда.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="quality" class="quality-section">
+        <div class="container">
+            <h2>Надежность данных.<br><span>Анализ решений.</span></h2>
+            <p class="quality-description">Наш модуль использует проверенные методы обработки финансовых данных и экономических показателей, обеспечивая точность и быстрые вычисления.</p>
+        </div>
+        <div class="quality-svg-glow"></div> 
+    </section>
+
+    <section id="faq" class="info-section">
+        <div class="container">
+            <h2 class="faq-title">Часто задаваемые вопросы</h2>
+            
+            <div class="faq-container">
+                
+                <div class="faq-item">
+                    <button class="faq-question">Что такое "критическое значение"</button>
+                    <div class="faq-answer">
+                        <p>В экономическом анализе это значение, превышение которого сигнализирует о необходимости дополнительного исследования или корректировки финансовой модели.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">Почему показатели генерируются случайным образом</button>
+                    <div class="faq-answer">
+                        <p>Для демонстрации работы платформы мы используем сгенерированные данные, имитирующие реальные финансовые и экономические показатели.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">Как быстро производится анализ</button>
+                    <div class="faq-answer">
+                        <p>Все вычисления выполняются на стороне клиента с помощью jQuery, что обеспечивает мгновенную реакцию при клике на ячейку таблицы.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">Можно ли использовать этот модуль для реальных инвестиций</button>
+                    <div class="faq-answer">
+                        <p>Данный модуль предназначен для демонстрации технологий. Для принятия инвестиционных решений используйте лицензированные аналитические платформы и профессиональные данные.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="start-building">
+                <p class="start-title">Начните свой анализ</p>
+                <div class="start-buttons">
+                    <a href="#analysis" class="btn-primary">Начать</a>
+                    <a href="#examples" class="btn-secondary">Примеры данных</a>
+                </div>
+                <div class="glow-effect"></div> 
+            </div>
+
+        </div>
+    </section>
+    
+    <footer id="contact" class="main-footer">
+        <div class="container">
+            
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <a href="#hero" class="logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 13H0L4 9H8L17 0H23L10 13Z" fill="#FAFAFA"/>
+                            <path d="M11 16V14L24 1V3L11 16Z" fill="#FAFAFA"/>
+                            <path d="M11 20V18L24 5V7L11 20Z" fill="#FAFAFA"/>
+                            <path d="M11 24V22L16 17V19L11 24Z" fill="#FAFAFA"/>
+                        </svg>
+                        DataInsight
+                    </a>
+                </div>
+
+                <div class="footer-col">
+                    <p class="col-title">Продукт</p>
+                    <a href="#">История изменений</a>
+                    <a href="#">Документация</a>
+                    <a href="#">Примеры моделей</a>
+                </div>
+
+                <div class="footer-col">
+                    <p class="col-title">Компания</p>
+                    <a href="#">О нас</a>
+                    <a href="#">Карьера</a>
+                    <a href="#">Команда</a>
+                </div>
+
+                <div class="footer-col">
+                    <p class="col-title">Контакты</p>
+                    <a href="#">Email</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 DataInsight.</p> 
+                <div class="legal-links">
+                    <a href="#">Website by Sobolek</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,719 @@
+/* --- 0. ГЛОБАЛЬНЫЕ СТИЛИ И ПЕРЕМЕННЫЕ --- */
+:root {
+    --primary-bg: #000000; /* 🔥 АБСОЛЮТНО ЧЁРНЫЙ ФОН */
+    --surface-bg: #000000; /* 🔥 АБСОЛЮТНО ЧЁРНЫЙ для блоков (Analysis Section) */
+    --text-light: #F5F5F5;
+    --text-muted: #AAAAAA;
+    --accent-color: #f8f8f8; 
+    --highlight-row: #040404; /* Еле заметный оттенок для выделенной строки */
+    --table-border: #1a1a1a; /* Еле заметный оттенок для границ */
+    --top-banner-bg: #000000; /* Темный фон для баннера */
+    --top-banner-text: #E0E0E0; /* Светлый текст для баннера */
+    --top-banner-link: #9EC0FF; /* Цвет ссылки в баннере */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000000 !important; /* 🔥 ПРИНУДИТЕЛЬНО ЧЁРНЫЙ */
+    color: var(--text-light);
+    margin: 0;
+    padding-top: 90px;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+    font-size: 0.8em;
+}
+
+.gradient-title {
+    display: inline-block;
+    max-width: 840px;
+    font-weight: 550; /* font-semibold */
+    line-height: 1.2; /* tight */
+    font-size: 2.25rem; /* text-4xl */
+    background: linear-gradient(to right, #ffffff, #888888); /* градиент */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 25px 25px rgba(0, 0, 0, 0.25); /* drop-shadow-2xl */
+}
+
+/* Универсальный стиль градиентного текста для нужных заголовков */
+.start-title,
+.faq-title,
+.analysis-section h2,
+.features-title, 
+.quality-section h2 {
+    background: linear-gradient(to right, #ffffff, #888888);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* на всякий случай */
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--text-light);
+}
+section {
+    padding: 100px 0;
+}
+
+/* --- 1. HEADER (Полностью #000000) --- */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000; /* 🔥 АБСОЛЮТНО ЧЁРНЫЙ */
+    z-index: 1000;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+/* ОБНОВЛЕНО: Стили для логотипа (SVG + текст) */
+.logo {
+    display: flex; /* Для выравнивания SVG и текста */
+    align-items: center; /* Центрирование по вертикали */
+    font-size: 1.5em;
+    font-weight: 800;
+    color: var(--text-light);
+    text-decoration: none;
+}
+.logo svg {
+    margin-right: 8px;
+}
+.logo span {
+    color: var(--accent-color);
+}
+.main-nav a {
+    margin-left: 45px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.05em;
+    transition: color 0.3s;
+}
+.main-nav a:hover {
+    color: var(--accent-color);
+}
+
+/* --- 2. HERO SECTION (Адаптировано под стиль с изображения) --- */
+.hero-section {
+    text-align: center;
+    padding-top: 50px; 
+    padding-bottom: 0px; 
+    position: relative; 
+    overflow: hidden; 
+}
+
+/* Стили для верхнего баннера */
+.top-banner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; 
+    background-color: var(--top-banner-bg);
+    padding: 6px 10px; 
+    border-radius: 40px; 
+    font-size: 0.6em; 
+    line-height: 1.2;
+    font-weight: 400;
+    color: var(--text-muted);
+    white-space: nowrap; 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.top-banner p { margin: 0; display: inline; }
+.top-banner a {
+    color: var(--top-banner-link);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 8px;
+    transition: color 0.2s;
+}
+.top-banner a:hover { color: var(--accent-color); }
+
+.hero-section h1 {
+    font-size: 4.8em; 
+    margin-top: 40px; 
+    margin-bottom: 20px;
+    line-height: 1.1;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-light); 
+}
+.hero-section h1 span {
+    background: linear-gradient(90deg, #FFC730, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero-section .subtitle {
+    font-size: 1.05rem; 
+    font-weight: 500; 
+    color: var(--text-muted); 
+    max-width: 840px;
+    margin: 0 auto 60px;
+    line-height: 1.6;
+    transform: translateY(15px);
+    text-wrap: balance; 
+}
+
+/* УНИФИЦИРОВАННЫЕ СТИЛИ ДЛЯ КНОПОК */
+.hero-buttons, .start-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
+    position: relative; 
+    z-index: 10; /* Z-index выше свечения */
+}
+
+/* ПЕРВИЧНАЯ КНОПКА (светлая, без hover-анимации) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #282828;
+  background: linear-gradient(to bottom, #ffffff, #878787);
+  border-top: 1px solid #4c4c4c;
+  border-radius: 0.375rem;
+  height: 2.5rem;
+  padding: 0 1.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+}
+.btn-primary:hover { background: linear-gradient(to bottom, #ffffff, #878787); }
+.btn-primary:focus { outline: none; box-shadow: none; }
+.btn-primary:disabled { opacity: 0.5; pointer-events: none; }
+
+/* ВТОРИЧНАЯ КНОПКА (Launch UI стиль, без анимации) */
+.btn-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #ffffff;
+  background: #1F1F21;
+  border: none;
+  border-radius: 0.375rem;
+  height: 2.5rem;
+  padding: 0 1.25rem;
+  backdrop-filter: blur(6px);
+  text-decoration: none;
+  overflow: hidden;
+}
+.btn-secondary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(to bottom, #494B4B, rgba(255,255,255,0));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.btn-secondary:hover { background: rgba(65, 65, 65, 0.488); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
+.btn-secondary:focus { outline: none; box-shadow: none; }
+.btn-secondary:disabled { opacity: 0.5; pointer-events: none; }
+
+
+/* --- 2.1. Стилизация свечения под HERO SECTION (.hero-glow) --- */
+.hero-glow {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    z-index: 0; /* Должен быть ниже кнопок и мокапа */
+    overflow: hidden;
+}
+
+.glow-layer-1 {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5); 
+    width: 80%; 
+    height: 256px; 
+    background: radial-gradient(circle at center, rgba(0, 255, 179, 0.2) 0%, transparent 60%); 
+    border-radius: 50%;
+    filter: blur(80px); 
+    opacity: 0.8; 
+    animation: glow-pulse 3s infinite alternate ease-in-out; 
+}
+
+.glow-layer-2 {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.0); 
+    width: 50%; 
+    height: 150px; 
+    background: radial-gradient(circle at center, rgba(0, 255, 179, 0.4) 0%, transparent 70%); 
+    border-radius: 50%;
+    filter: blur(50px); 
+    opacity: 0.6;
+    animation: glow-pulse-delay 3s infinite alternate ease-in-out;
+}
+
+/* Анимация пульсации */
+@keyframes glow-pulse {
+    0% { transform: translateX(-50%) scale(1.5); opacity: 0.8; }
+    100% { transform: translateX(-50%) scale(1.6); opacity: 0.9; }
+}
+@keyframes glow-pulse-delay {
+    0% { transform: translateX(-50%) scale(1.0); opacity: 0.6; }
+    100% { transform: translateX(-50%) scale(1.1); opacity: 0.7; }
+}
+
+
+/* --- 2.2. MOCKUP BLOCK (Фрейм и Свечение) --- */
+
+.mockup-block {
+    /* Чтобы мокап стоял внизу hero-section, но внутри, используем padding-top */
+    position: relative; 
+    width: 100%;
+    padding-top: 48px; /* pt-12 (48px) - отступ от кнопок */
+    margin: 0 auto;
+    /* Убедимся, что контейнер мокапа не выходит за пределы hero-section по ширине */
+    padding: 48px 40px 0; /* Добавим боковые отступы контейнера */
+    max-width: 1300px;
+    box-sizing: border-box;
+    z-index: 5; /* Z-index выше свечения, но ниже кнопок */
+}
+
+/* Рамка мокапа (mockup-frame) */
+.mockup-frame {
+    display: flex;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    border-radius: 1rem; /* rounded-2xl */
+    padding: 8px; /* p-2 */
+    
+    /* Имитация обводки border/50: очень тонкая светлая граница */
+    background-color: rgba(255, 255, 255, 0.05); /* bg-border/50 */
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1); 
+    /* Дополнительный внешний градиент для имитации свечения вокруг рамки */
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent); 
+
+    /* Анимация (имитация Tailwind animate-appear) */
+    opacity: 1; 
+}
+
+/* Содержимое мокапа (mockup) */
+.mockup {
+    display: flex;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 0.75rem; /* rounded-xl */
+    
+    /* Фон и обводка внутреннего блока */
+    background-color: rgba(0, 0, 0, 0.9); /* bg-background/90 */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* border-border/70 */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.5); /* shadow-2xl */
+}
+
+.mockup-content-placeholder {
+    width: 100%;
+    /* 1248/765 ≈ 1.63 - используем это соотношение для высоты */
+    padding-top: calc(100% / 1.63 / 2); /* Половина высоты */
+    padding-bottom: calc(100% / 1.63 / 2);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.2em;
+    min-height: 200px;
+}
+
+/* --- 3. ANALYSIS SECTION (Таблица - Минимализм) --- */
+.analysis-section {
+    /* Поскольку мокап теперь внутри hero, анализ начинается сразу после него */
+    background-color: var(--surface-bg);
+    border-radius: 20px;
+    padding: 80px 40px;
+    margin: 40px 40px 0; /* Сверху отступ от hero */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+.analysis-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+.analysis-section .container > p {
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    color: var(--text-muted);
+}
+.table-wrapper {
+    background-color: var(--primary-bg);
+    border-radius: 10px;
+    padding: 10px;
+    overflow-x: auto;
+    border: 1px solid var(--table-border);
+}
+
+/* Стилизация таблицы */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 1.05em;
+}
+td {
+    padding: 18px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--table-border);
+    border-right: 1px solid var(--table-border);
+    transition: background-color 0.2s;
+    font-weight: 500;
+    color: var(--text-light);
+}
+tr:last-child td { border-bottom: none; }
+td:last-child { border-right: none; }
+
+td:hover {
+    background-color: #020202; 
+    cursor: pointer;
+}
+tr.selected td {
+    background-color: var(--highlight-row); 
+    color: var(--accent-color);
+    font-weight: 700;
+}
+.result-box {
+    margin-top: 40px;
+    padding: 20px;
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--accent-color);
+    background-color: var(--primary-bg);
+    border-radius: 8px;
+    border: 2px solid var(--accent-color);
+}
+
+/* --- 3.1. FEATURES SECTION (Новый дизайн) --- */
+.features-section {
+    padding: 100px 0;
+    text-align: center;
+    background-color: var(--primary-bg); 
+}
+
+.features-title {
+    font-size: 3.5em; /* Большой заголовок */
+    line-height: 1.1;
+    font-weight: 600;
+    margin: 0 auto 80px; /* Отступ снизу для сетки */
+    max-width: 600px;
+    text-wrap: balance;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки, как на скриншоте */
+    gap: 30px; /* Расстояние между элементами */
+    text-align: left;
+    max-width: 800px; 
+    margin: 0 auto;
+}
+
+.feature-item {
+    padding: 0;
+}
+
+/* НОВЫЙ БЛОК: Заголовок и Иконка на одной линии */
+.feature-header {
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали */
+    margin-bottom: 15px; /* Отступ до описания */
+}
+
+.feature-icon {
+    color: var(--text-light); 
+    margin-right: 10px; /* Отступ справа от иконки до текста */
+    margin-bottom: 0; /* Обнуляем старый отступ, который был 20px */
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0; /* Запрещает иконке сжиматься */
+}
+
+.feature-heading {
+    font-size: 1.1em; 
+    font-weight: 500;
+    color: var(--text-light); 
+    margin: 0; /* Важно: убираем стандартные отступы h3 */
+    line-height: 1.3; /* Обеспечивает хорошее вертикальное выравнивание с иконкой */
+}
+
+.feature-description {
+    font-size: 1em; 
+    color: var(--text-muted); 
+    line-height: 1.6;
+    margin: 0;
+}
+/* Конец НОВОГО БЛОКА */
+
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+        max-width: 800px;
+    }
+}
+@media (max-width: 600px) {
+    .features-grid {
+        grid-template-columns: 1fr; /* 1 колонка на маленьких экранах */
+    }
+    .features-title {
+        font-size: 2.5em;
+    }
+}
+
+
+/* --- 4. Quality you can trust (Свечение) --- */
+.quality-section {
+    padding: 50px 0 400px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--primary-bg);
+}
+
+.quality-section h2 {
+    font-size: 3.5em; 
+    line-height: 1.1;
+    margin: 0 auto 40px; 
+    max-width: 600px;
+    color: var(--text-light);
+    position: relative;
+    z-index: 2;
+}
+.quality-section h2 span {
+    color: var(--accent-color);
+}
+
+.quality-description {
+    font-size: 1em;
+    color: var(--text-muted);
+    max-height: 700px;
+    margin: 0 auto;
+    max-width: 500px;
+    position: relative;
+    z-index: 2;
+}
+
+.quality-svg-glow {
+    position: absolute;
+    top: 200px; /* Сдвигаем вверх для лучшего позиционирования свечения */
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 100%; 
+    max-width: 2081px; /* Ширина SVG */
+    height: 1469px; /* Высота SVG */
+    pointer-events: none; 
+    z-index: 1; /* Под содержимым контейнера (z-index: 2) */
+    
+    /* Добавляем SVG как фоновое изображение */
+    background-image: url('../images/quality-glow.svg'); /* ПУТЬ К СОХРАНЕННОМУ ФАЙЛУ */
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: contain; /* Обеспечивает масштабирование внутри .quality-svg-glow */
+}
+
+/* Эффект фонового свечения (Обновленные стили для позиционирования внизу) */
+.glow-effect {
+    position: absolute;
+    /* ИЗМЕНЕНИЕ: Позиционируем по низу */
+    bottom: 0; 
+    left: 50%;
+    /* Сдвиг только по горизонтали */
+    transform: translateX(-50%); 
+    width: 800px; 
+    height: 400px; 
+    background: radial-gradient(circle at center, rgba(0, 255, 179, 0.6) 0%, transparent 70%); 
+    filter: blur(100px); 
+    opacity: 0.8;
+    animation: pulseGlow 4s infinite alternate ease-in-out; 
+    z-index: 1; /* Ниже текста и кнопок */
+}
+
+@keyframes pulseGlow {
+    /* ИЗМЕНЕНИЕ: Убираем translateY из transform */
+    0% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+    100% { transform: translateX(-50%) scale(1.05); opacity: 0.9; }
+}
+
+
+/* --- 5. FAQ SECTION (Аккордеон) --- */
+.info-section {
+    padding-bottom: 0;
+    text-align: center;
+    background-color: var(--primary-bg);
+}
+.faq-title {
+    font-size: 3em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Контейнер аккордеона */
+.faq-container {
+    max-width: 500px; /* ИЗМЕНЕНИЕ: Уменьшена ширина контейнера */
+    margin: 0 auto;
+    text-align: left;
+}
+.faq-item {
+    /* ИЗМЕНЕНИЕ: Добавляем границу снизу для разделения вопросов, как на скриншоте */
+    border-bottom: 1px solid var(--table-border);
+}
+/* Удаляем лишнюю границу у последнего элемента */
+.faq-container .faq-item:last-child {
+    border-bottom: none; 
+}
+
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px 0;
+    text-align: left;
+    color: var(--text-light);
+    font-size: 1.1em;
+    font-weight: 300;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s;
+}
+.faq-question:hover { color: var(--accent-color); }
+.faq-question::after {
+    /* ИЗМЕНЕНИЕ: Заменяем '+' на значок шеврона, как на скриншоте */
+    content: '\203A'; /* Unicode: > (знак больше) */
+    font-size: 1.2em;
+    font-weight: 300;
+    transition: transform 0.3s ease-out; /* Плавное вращение */
+    transform: rotate(90deg); /* Начальное положение: направлен вправо */
+    color: var(--text-muted); 
+}
+.faq-question.active::after {
+    /* Вращаем на 270 градусов, чтобы смотрел вниз (открыто) */
+    transform: rotate(270deg); 
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding-bottom: 0;
+}
+.faq-answer p {
+    padding-bottom: 20px;
+    font-size: 1em;
+    color: var(--text-muted);
+    margin: 0;
+    max-width: 100%;
+}
+
+/* Секция Start Building (Скорректировано для свечения) */
+.start-building {
+    position: relative; 
+    overflow: hidden;
+    padding-top: 100px;
+    padding-bottom: 150px; 
+}
+
+.start-building .glow-effect {
+    position: absolute;
+    bottom: -400px;          
+    left: 50%;          
+    transform: translateX(-50%); 
+    width: 100%;
+    height: 400px;
+    background: radial-gradient(circle at center, #184A3A 60%, transparent 70%);
+    filter: blur(100px);
+    z-index: 0;
+    animation: pulseGlow 4s infinite alternate ease-in-out;
+}
+.start-title {
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--text-light);
+    position: relative; 
+    z-index: 2;
+}
+/* Кнопки тоже должны быть над свечением */
+.start-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
+    position: relative; 
+    z-index: 2; 
+}
+
+
+/* --- 6. FOOTER (ТОЧНЫЙ МАКЕТ LAUNCH UI) --- */
+.main-footer {
+    background-color: var(--primary-bg);
+    color: var(--text-muted);
+    padding: 50px 0 30px;
+    text-align: left;
+    
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 50px; 
+}
+.footer-col {
+    display: flex;
+    flex-direction: column;}
+.col-title {
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 25px; 
+    font-size: 1em;
+}
+.footer-col a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 12px;
+    font-size: 0.95em;
+    transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--text-light); }
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid var(--table-border);
+    font-size: 0.85em; 
+}
+.legal-links a {
+    color: var(--text-muted);
+    margin-left: 30px; 
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.legal-links a:hover { color: var(--text-light); }
