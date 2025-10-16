@@ -54,31 +54,80 @@
         <div class="mockup-block">
             <div class="mockup-frame">
                 <div class="mockup">
-                    <div class="mockup-content-placeholder">
-                        <p>Демонстрационный мокап (Изображение отсутствует)</p>
-                    </div>
+                    <img src="/images/mockup.svg" alt="Mockup SVG" class="mockup-svg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech-stack" class="tech-stack-section">
+        <div class="container tech-stack-container">
+            <p class="tech-stack-title">Построено на лучших инструментах</p>
+            
+            <div class="tech-stack-grid">
+                <div class="tech-item">
+                    <img src="/images/springboot.svg" alt="Spring Boot Icon">
+                    <span>Spring Boot</span>
+                </div>
+                
+                <div class="tech-item">
+                    <img src="/images/java.svg" alt="Java Icon">
+                    <span>Java 21+</span>
+                </div>
+
+                <div class="tech-item">
+                    <img src="/images/jquery.svg" alt="jQuery Icon">
+                    <span>jQuery 3.7.1</span>
+                </div>
+
+                <div class="tech-item">
+                    <img src="/images/css.svg" alt="CSS Icon">
+                    <span>CSS3</span>
+                </div>
+
+                <div class="tech-item">
+                    <img src="/images/html.svg" alt="HTML Icon">
+                    <span>HTML5</span>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="analysis" class="analysis-section">
-        <div class="container">
-            <h2>Интерактивный Экономический Модуль</h2>
-            <p>Таблица содержит ключевые экономические и финансовые показатели. **Кликните на любую ячейку**, чтобы выбрать контрольное значение и получить мгновенный анализ превышений по строке.</p>
+    <div class="container">
+        <h2>Интерактивный модуль</h2>
+        <p>Таблица содержит ключевые экономические и финансовые показатели</p>
+
+        <div class="analysis-content-wrapper">
             
-            <div class="table-wrapper">
-                <div th:utext="${tableHtml}"></div>
+            <div class="analysis-controls-panel">
+                
+                <div id="result" class="btn-secondary">
+                    Кликните на ячейку, чтобы увидеть результат
+                </div>
+                <div class="table-controls">
+                    <label for="rows">Количество строк (1-10):</label>
+                    <input type="number" id="rows" min="1" max="10" value="6">
+                    
+                    <label for="cols">Количество столбцов (1-10):</label>
+                    <input type="number" id="cols" min="1" max="10" value="5">
+                    
+                    <button id="generateBtn" class="btn-secondary">Сгенерировать новую таблицу</button>
+                </div>
+                
             </div>
-            
-            <div id="result" class="result-box">Нажмите на ячейку для начала анализа</div>
+
+            <div class="table-wrapper">
+                <div id="tableContainer" th:utext="${tableHtml}"></div> 
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="examples" class="features-section">
         <div class="container">
             <h2 class="features-title">
-                Инструменты, которые <br>дают результат.
+                Инструменты, которые <br>дают результат
             </h2>
             
             <div class="features-grid">
