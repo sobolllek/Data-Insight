@@ -1,26 +1,30 @@
-/* --- 0. ГЛОБАЛЬНЫЕ СТИЛИ И ПЕРЕМЕННЫЕ --- */
 :root {
-    --primary-bg: #000000; /* 🔥 АБСОЛЮТНО ЧЁРНЫЙ ФОН */
-    --surface-bg: #000000; /* 🔥 АБСОЛЮТНО ЧЁРНЫЙ для блоков (Analysis Section) */
+    --primary-bg: #000000;
+    --surface-bg: #000000;
     --text-light: #F5F5F5;
     --text-muted: #AAAAAA;
     --accent-color: #f8f8f8; 
-    --highlight-row: #040404; /* Еле заметный оттенок для выделенной строки */
-    --table-border: #1a1a1a; /* Еле заметный оттенок для границ */
-    --top-banner-bg: #000000; /* Темный фон для баннера */
-    --top-banner-text: #E0E0E0; /* Светлый текст для баннера */
-    --top-banner-link: #9EC0FF; /* Цвет ссылки в баннере */
+    --highlight-row: #040404;
+    --table-border: #1a1a1a;
+    --top-banner-bg: #000000;
+    --top-banner-text: #E0E0E0;
+    --top-banner-link: #9EC0FF;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #000000 !important; /* 🔥 ПРИНУДИТЕЛЬНО ЧЁРНЫЙ */
+    background-color: #000000 !important;
     color: var(--text-light);
     margin: 0;
     padding-top: 90px;
     line-height: 1.6;
     scroll-behavior: smooth;
 }
+
+html, body {
+    overflow-x: hidden; 
+}
+
 .container {
     max-width: 1300px;
     margin: 0 auto;
@@ -31,17 +35,16 @@ body {
 .gradient-title {
     display: inline-block;
     max-width: 840px;
-    font-weight: 550; /* font-semibold */
-    line-height: 1.2; /* tight */
-    font-size: 2.25rem; /* text-4xl */
-    background: linear-gradient(to right, #ffffff, #888888); /* градиент */
+    font-weight: 550;
+    line-height: 1.2;
+    font-size: 2.25rem;
+    background: linear-gradient(to right, #ffffff, #888888);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 25px 25px rgba(0, 0, 0, 0.25); /* drop-shadow-2xl */
+    text-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
 }
 
-/* Универсальный стиль градиентного текста для нужных заголовков */
 .start-title,
 .faq-title,
 .analysis-section h2,
@@ -51,7 +54,7 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: transparent; /* на всякий случай */
+    color: transparent;
 }
 
 h1, h2, h3 {
@@ -63,13 +66,13 @@ section {
     padding: 100px 0;
 }
 
-/* --- 1. HEADER (Полностью #000000) --- */
+/* --- 1. HEADER --- */
 .main-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #000000; /* 🔥 АБСОЛЮТНО ЧЁРНЫЙ */
+    background-color: #000000;
     z-index: 1000;
 }
 .header-content {
@@ -78,10 +81,9 @@ section {
     align-items: center;
     height: 90px;
 }
-/* ОБНОВЛЕНО: Стили для логотипа (SVG + текст) */
 .logo {
-    display: flex; /* Для выравнивания SVG и текста */
-    align-items: center; /* Центрирование по вертикали */
+    display: flex;
+    align-items: center;
     font-size: 1.5em;
     font-weight: 800;
     color: var(--text-light);
@@ -105,16 +107,15 @@ section {
     color: var(--accent-color);
 }
 
-/* --- 2. HERO SECTION (Адаптировано под стиль с изображения) --- */
+/* --- 2. HERO SECTION --- */
 .hero-section {
     text-align: center;
     padding-top: 50px; 
     padding-bottom: 0px; 
     position: relative; 
-    overflow: hidden; 
+    overflow: visible; 
 }
 
-/* Стили для верхнего баннера */
 .top-banner {
     display: inline-flex;
     align-items: center;
@@ -165,16 +166,14 @@ section {
     text-wrap: balance; 
 }
 
-/* УНИФИЦИРОВАННЫЕ СТИЛИ ДЛЯ КНОПОК */
 .hero-buttons, .start-buttons {
     display: flex;
     justify-content: center;
     gap: 15px; 
     position: relative; 
-    z-index: 10; /* Z-index выше свечения */
+    z-index: 10;
 }
 
-/* ПЕРВИЧНАЯ КНОПКА (светлая, без hover-анимации) */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -195,7 +194,6 @@ section {
 .btn-primary:focus { outline: none; box-shadow: none; }
 .btn-primary:disabled { opacity: 0.5; pointer-events: none; }
 
-/* ВТОРИЧНАЯ КНОПКА (Launch UI стиль, без анимации) */
 .btn-secondary {
   position: relative;
   display: inline-flex;
@@ -205,7 +203,7 @@ section {
   font-size: 0.875rem;
   font-weight: 500;
   color: #ffffff;
-  background: #1F1F21;
+  background: #ffffff0f;
   border: none;
   border-radius: 0.375rem;
   height: 2.5rem;
@@ -226,52 +224,51 @@ section {
   mask-composite: exclude;
   pointer-events: none;
 }
-.btn-secondary:hover { background: rgba(65, 65, 65, 0.488); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
-.btn-secondary:focus { outline: none; box-shadow: none; }
-.btn-secondary:disabled { opacity: 0.5; pointer-events: none; }
 
 
-/* --- 2.1. Стилизация свечения под HERO SECTION (.hero-glow) --- */
+/* --- 2.1. Стилизация свечения под HERO SECTION --- */
 .hero-glow {
     position: absolute;
-    top: 0; 
-    left: 0;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%);
     width: 100%;
-    height: 100%;
-    pointer-events: none; 
-    z-index: 0; /* Должен быть ниже кнопок и мокапа */
-    overflow: hidden;
+    height: 600px;
+    pointer-events: none;
+    z-index: 3;
+    overflow: visible;
 }
 
 .glow-layer-1 {
     content: '';
     position: absolute;
+    bottom: 0;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1.5); 
-    width: 80%; 
-    height: 256px; 
-    background: radial-gradient(circle at center, rgba(0, 255, 179, 0.2) 0%, transparent 60%); 
+    transform: translateX(-50%) scale(1.3);
+    width: 80%;
+    height: 300px;
+    background: radial-gradient(circle at center, rgba(0, 255, 179, 0.25) 0%, transparent 70%);
     border-radius: 50%;
-    filter: blur(80px); 
-    opacity: 0.8; 
-    animation: glow-pulse 3s infinite alternate ease-in-out; 
+    filter: blur(120px);
+    opacity: 0.9;
+    animation: glow-pulse 3s infinite alternate ease-in-out;
 }
 
 .glow-layer-2 {
     content: '';
     position: absolute;
+    bottom: 0;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1.0); 
-    width: 50%; 
-    height: 150px; 
-    background: radial-gradient(circle at center, rgba(0, 255, 179, 0.4) 0%, transparent 70%); 
+    transform: translateX(-50%) scale(1);
+    width: 60%;
+    height: 200px;
+    background: radial-gradient(circle at center, rgba(0, 255, 179, 0.4) 0%, transparent 80%);
     border-radius: 50%;
-    filter: blur(50px); 
-    opacity: 0.6;
+    filter: blur(100px);
+    opacity: 0.7;
     animation: glow-pulse-delay 3s infinite alternate ease-in-out;
 }
 
-/* Анимация пульсации */
 @keyframes glow-pulse {
     0% { transform: translateX(-50%) scale(1.5); opacity: 0.8; }
     100% { transform: translateX(-50%) scale(1.6); opacity: 0.9; }
@@ -282,133 +279,179 @@ section {
 }
 
 
-/* --- 2.2. MOCKUP BLOCK (Фрейм и Свечение) --- */
+/* --- 2.2. MOCKUP BLOCK --- */
 
 .mockup-block {
-    /* Чтобы мокап стоял внизу hero-section, но внутри, используем padding-top */
     position: relative; 
     width: 100%;
-    padding-top: 48px; /* pt-12 (48px) - отступ от кнопок */
+    padding-top: 48px;
     margin: 0 auto;
-    /* Убедимся, что контейнер мокапа не выходит за пределы hero-section по ширине */
-    padding: 48px 40px 0; /* Добавим боковые отступы контейнера */
+    padding: 48px 40px 0;
     max-width: 1300px;
     box-sizing: border-box;
-    z-index: 5; /* Z-index выше свечения, но ниже кнопок */
+    z-index: 5;
 }
 
-/* Рамка мокапа (mockup-frame) */
 .mockup-frame {
     display: flex;
     position: relative;
     z-index: 10;
     overflow: hidden;
-    border-radius: 1rem; /* rounded-2xl */
-    padding: 8px; /* p-2 */
+    border-radius: 1rem;
+    padding: 8px;
     
-    /* Имитация обводки border/50: очень тонкая светлая граница */
-    background-color: rgba(255, 255, 255, 0.05); /* bg-border/50 */
+    background-color: rgba(255, 255, 255, 0.05);
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1); 
-    /* Дополнительный внешний градиент для имитации свечения вокруг рамки */
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent); 
-
-    /* Анимация (имитация Tailwind animate-appear) */
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 45%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 45%, transparent 100%);
     opacity: 1; 
 }
 
-/* Содержимое мокапа (mockup) */
 .mockup {
     display: flex;
     position: relative;
     z-index: 10;
     overflow: hidden;
     width: 100%;
-    border-radius: 0.75rem; /* rounded-xl */
+    border-radius: 0.75rem;
     
-    /* Фон и обводка внутреннего блока */
-    background-color: rgba(0, 0, 0, 0.9); /* bg-background/90 */
-    border: 1px solid rgba(255, 255, 255, 0.05); /* border-border/70 */
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.5); /* shadow-2xl */
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
 }
 
-.mockup-content-placeholder {
+
+.mockup-svg {
     width: 100%;
-    /* 1248/765 ≈ 1.63 - используем это соотношение для высоты */
-    padding-top: calc(100% / 1.63 / 2); /* Половина высоты */
-    padding-bottom: calc(100% / 1.63 / 2);
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 1.2em;
-    min-height: 200px;
+    height: auto;
+    display: block;
 }
 
-/* --- 3. ANALYSIS SECTION (Таблица - Минимализм) --- */
+/* --- 5. ANALYSIS SECTION --- */
 .analysis-section {
-    /* Поскольку мокап теперь внутри hero, анализ начинается сразу после него */
-    background-color: var(--surface-bg);
-    border-radius: 20px;
-    padding: 80px 40px;
-    margin: 40px 40px 0; /* Сверху отступ от hero */
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-    text-align: center;
-}
-.analysis-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-.analysis-section .container > p {
-    font-size: 1.1em;
-    margin-bottom: 40px;
-    color: var(--text-muted);
-}
-.table-wrapper {
+    padding: 80px 0;
     background-color: var(--primary-bg);
-    border-radius: 10px;
-    padding: 10px;
-    overflow-x: auto;
-    border: 1px solid var(--table-border);
 }
 
-/* Стилизация таблицы */
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    font-size: 1.05em;
+.analysis-section h2 { 
+    text-align: center; 
+    margin-bottom: 10px; 
+    font-size: 3em;
 }
-td {
-    padding: 18px 20px;
+
+.analysis-section p {
     text-align: center;
-    border-bottom: 1px solid var(--table-border);
-    border-right: 1px solid var(--table-border);
-    transition: background-color 0.2s;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.analysis-content-wrapper {
+    display: flex; 
+    gap: 40px;     
+    align-items: flex-start; 
+    margin-top: 40px;
+}
+
+.analysis-controls-panel {
+    flex: 0 0 300px; 
+    padding: 20px;
+    background-color: var(--surface-bg);
+}
+
+.analysis-controls-panel h3 {
+    color: var(--text-light);
+    font-size: 1.4em;
+    margin-top: 0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.table-wrapper {
+    flex-grow: 1; 
+    padding: 20px; 
+    background-color: var(--surface-bg);
+    overflow-x: auto;
+}
+
+.table-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+.table-controls label { font-size: 0.9em; color: var(--text-muted); font-weight: 500; }
+
+.table-controls input[type="number"] {
+    padding: 10px 15px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    background-color: #1a1a1a;
+    color: var(--text-light);
+    font-size: 1.1em;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6); 
+    -webkit-appearance: none; 
+    -moz-appearance: textfield; 
+    appearance: none;
+    
+    padding-right: 40px; 
+}
+
+.table-controls input[type="number"]::-webkit-outer-spin-button,
+.table-controls input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.table-controls .btn-primary { margin-top: 10px; padding: 12px; }
+
+.result-box {
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px; 
+    font-size: 0.9em;
     font-weight: 500;
     color: var(--text-light);
+    text-align: left;
+    background-color: var(--surface-bg);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
-tr:last-child td { border-bottom: none; }
-td:last-child { border-right: none; }
 
-td:hover {
-    background-color: #020202; 
-    cursor: pointer;
+/* --- СТИЛИ ТАБЛИЦЫ --- */
+#myTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 500;
 }
-tr.selected td {
+#myTable tr { transition: background-color 0.2s ease; cursor: pointer; }
+#myTable tr:hover { background-color: rgba(255, 255, 255, 0.03); }
+#myTable td {
+    border: 1px solid var(--table-border);
+    padding: 12px;
+    text-align: center;
+    color: var(--text-light);
+}
+
+#myTable tr.selected {
     background-color: var(--highlight-row); 
-    color: var(--accent-color);
+    box-shadow: inset 3px 0 0 0 #849fff; 
+}
+#myTable tr.selected td {
+    color: #849fff; 
     font-weight: 700;
 }
-.result-box {
-    margin-top: 40px;
-    padding: 20px;
-    font-size: 1.3em;
-    font-weight: 600;
-    color: var(--accent-color);
-    background-color: var(--primary-bg);
-    border-radius: 8px;
-    border: 2px solid var(--accent-color);
-}
 
-/* --- 3.1. FEATURES SECTION (Новый дизайн) --- */
+/* --- 3.1. FEATURES SECTION --- */
 .features-section {
     padding: 100px 0;
     text-align: center;
@@ -416,18 +459,18 @@ tr.selected td {
 }
 
 .features-title {
-    font-size: 3.5em; /* Большой заголовок */
+    font-size: 2.5em;
     line-height: 1.1;
     font-weight: 600;
-    margin: 0 auto 80px; /* Отступ снизу для сетки */
+    margin: 0 auto 80px;
     max-width: 600px;
     text-wrap: balance;
 }
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 колонки, как на скриншоте */
-    gap: 30px; /* Расстояние между элементами */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
     text-align: left;
     max-width: 800px; 
     margin: 0 auto;
@@ -437,28 +480,27 @@ tr.selected td {
     padding: 0;
 }
 
-/* НОВЫЙ БЛОК: Заголовок и Иконка на одной линии */
 .feature-header {
     display: flex;
-    align-items: center; /* Выравнивание по вертикали */
-    margin-bottom: 15px; /* Отступ до описания */
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .feature-icon {
     color: var(--text-light); 
-    margin-right: 10px; /* Отступ справа от иконки до текста */
-    margin-bottom: 0; /* Обнуляем старый отступ, который был 20px */
+    margin-right: 10px;
+    margin-bottom: 0;
     width: 28px;
     height: 28px;
-    flex-shrink: 0; /* Запрещает иконке сжиматься */
+    flex-shrink: 0;
 }
 
 .feature-heading {
     font-size: 1.1em; 
     font-weight: 500;
     color: var(--text-light); 
-    margin: 0; /* Важно: убираем стандартные отступы h3 */
-    line-height: 1.3; /* Обеспечивает хорошее вертикальное выравнивание с иконкой */
+    margin: 0;
+    line-height: 1.3;
 }
 
 .feature-description {
@@ -467,19 +509,17 @@ tr.selected td {
     line-height: 1.6;
     margin: 0;
 }
-/* Конец НОВОГО БЛОКА */
 
 
-/* Медиа-запросы для адаптивности */
 @media (max-width: 1024px) {
     .features-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+        grid-template-columns: repeat(2, 1fr);
         max-width: 800px;
     }
 }
 @media (max-width: 600px) {
     .features-grid {
-        grid-template-columns: 1fr; /* 1 колонка на маленьких экранах */
+        grid-template-columns: 1fr;
     }
     .features-title {
         font-size: 2.5em;
@@ -487,7 +527,7 @@ tr.selected td {
 }
 
 
-/* --- 4. Quality you can trust (Свечение) --- */
+/* --- 4. СВЕЧЕНИЕ --- */
 .quality-section {
     padding: 50px 0 400px;
     text-align: center;
@@ -521,29 +561,25 @@ tr.selected td {
 
 .quality-svg-glow {
     position: absolute;
-    top: 200px; /* Сдвигаем вверх для лучшего позиционирования свечения */
+    top: 200px;
     left: 50%;
     transform: translateX(-50%); 
     width: 100%; 
-    max-width: 2081px; /* Ширина SVG */
-    height: 1469px; /* Высота SVG */
+    max-width: 2081px;
+    height: 1469px;
     pointer-events: none; 
-    z-index: 1; /* Под содержимым контейнера (z-index: 2) */
+    z-index: 1;
     
-    /* Добавляем SVG как фоновое изображение */
-    background-image: url('../images/quality-glow.svg'); /* ПУТЬ К СОХРАНЕННОМУ ФАЙЛУ */
+    background-image: url('../images/quality-glow.svg');
     background-repeat: no-repeat;
     background-position: center top;
-    background-size: contain; /* Обеспечивает масштабирование внутри .quality-svg-glow */
+    background-size: contain;
 }
 
-/* Эффект фонового свечения (Обновленные стили для позиционирования внизу) */
 .glow-effect {
     position: absolute;
-    /* ИЗМЕНЕНИЕ: Позиционируем по низу */
     bottom: 0; 
     left: 50%;
-    /* Сдвиг только по горизонтали */
     transform: translateX(-50%); 
     width: 800px; 
     height: 400px; 
@@ -551,17 +587,16 @@ tr.selected td {
     filter: blur(100px); 
     opacity: 0.8;
     animation: pulseGlow 4s infinite alternate ease-in-out; 
-    z-index: 1; /* Ниже текста и кнопок */
+    z-index: 1;
 }
 
 @keyframes pulseGlow {
-    /* ИЗМЕНЕНИЕ: Убираем translateY из transform */
     0% { transform: translateX(-50%) scale(1); opacity: 0.8; }
     100% { transform: translateX(-50%) scale(1.05); opacity: 0.9; }
 }
 
 
-/* --- 5. FAQ SECTION (Аккордеон) --- */
+/* --- 5. FAQ SECTION --- */
 .info-section {
     padding-bottom: 0;
     text-align: center;
@@ -573,17 +608,14 @@ tr.selected td {
     text-align: center;
 }
 
-/* Контейнер аккордеона */
 .faq-container {
-    max-width: 500px; /* ИЗМЕНЕНИЕ: Уменьшена ширина контейнера */
+    max-width: 500px;
     margin: 0 auto;
     text-align: left;
 }
 .faq-item {
-    /* ИЗМЕНЕНИЕ: Добавляем границу снизу для разделения вопросов, как на скриншоте */
     border-bottom: 1px solid var(--table-border);
 }
-/* Удаляем лишнюю границу у последнего элемента */
 .faq-container .faq-item:last-child {
     border-bottom: none; 
 }
@@ -606,16 +638,14 @@ tr.selected td {
 }
 .faq-question:hover { color: var(--accent-color); }
 .faq-question::after {
-    /* ИЗМЕНЕНИЕ: Заменяем '+' на значок шеврона, как на скриншоте */
-    content: '\203A'; /* Unicode: > (знак больше) */
+    content: '\203A';
     font-size: 1.2em;
     font-weight: 300;
-    transition: transform 0.3s ease-out; /* Плавное вращение */
-    transform: rotate(90deg); /* Начальное положение: направлен вправо */
+    transition: transform 0.3s ease-out;
+    transform: rotate(90deg);
     color: var(--text-muted); 
 }
 .faq-question.active::after {
-    /* Вращаем на 270 градусов, чтобы смотрел вниз (открыто) */
     transform: rotate(270deg); 
 }
 .faq-answer {
@@ -632,7 +662,6 @@ tr.selected td {
     max-width: 100%;
 }
 
-/* Секция Start Building (Скорректировано для свечения) */
 .start-building {
     position: relative; 
     overflow: hidden;
@@ -660,7 +689,6 @@ tr.selected td {
     position: relative; 
     z-index: 2;
 }
-/* Кнопки тоже должны быть над свечением */
 .start-buttons {
     display: flex;
     justify-content: center;
@@ -670,7 +698,7 @@ tr.selected td {
 }
 
 
-/* --- 6. FOOTER (ТОЧНЫЙ МАКЕТ LAUNCH UI) --- */
+/* --- 6. FOOTER --- */
 .main-footer {
     background-color: var(--primary-bg);
     color: var(--text-muted);
@@ -717,3 +745,80 @@ tr.selected td {
     transition: color 0.2s;
 }
 .legal-links a:hover { color: var(--text-light); }
+
+.main-header.scrolled-header {
+    background-color: rgba(0, 0, 0, 0.536); 
+    
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); 
+    
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* --- 7. TECH STACK SECTION --- */
+
+.tech-stack-section {
+    background-color: var(--primary-bg);
+    padding: 80px 0 40px;
+    text-align: center;
+}
+
+.tech-stack-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.tech-stack-title {
+    font-size: 0.9em;
+    color: var(--text-light);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.tech-stack-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    gap: 40px;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+    font-size: 1em;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.tech-item img {
+    width: 18px; 
+    height: 18px;
+    margin-right: 8px;
+    opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+    .tech-stack-grid {
+        flex-wrap: wrap; 
+        gap: 20px 40px;
+        padding: 20px 0;
+    }
+    .tech-stack-title {
+        margin-bottom: 40px;
+    }
+}
